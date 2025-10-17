@@ -1503,23 +1503,220 @@
         </div>
     </section>
 
+
+
+
+
+
+<style>
+/* === СТИЛИ ДЛЯ НОВОГО АЭРОЗОЛЬНОГО РАЗДЕЛА (Aerosol Production) === */
+.aerosol-section {
+    padding: 80px 20px;
+    background: #ffffff00;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.aerosol-content-wrapper {
+    display: flex;
+    gap: 40px;
+}
+
+.aerosol-text-block {
+    flex: 1;
+}
+
+.aerosol-title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    padding-top: 10px;
+    color: #333;
+}
+
+.aerosol-title::before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #2e9cff;
+    margin-bottom: 10px;
+}
+
+.aerosol-categories {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px 30px;
+    list-style: none;
+    padding: 0;
+}
+
+.aerosol-category-item {
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.aerosol-category-item i {
+    color: #2e9cff;
+    font-size: 18px;
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+
+.aerosol-logos-block {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 колонки */
+    grid-template-rows: repeat(3, 1fr); /* 3 ряда */
+    gap: 1px;
+    border: 1px solid #e0e0e011;
+}
+
+.logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e0e0e063;
+    padding: 20px;
+    height: 100%;
+}
+
+.logo-item img {
+    max-width: 100px;
+    max-height: 50px;
+    width: auto;
+    height: auto;
+    opacity: 0.2; /* Серые логотипы по умолчанию */
+    transition: opacity 0.3s;
+    filter: grayscale(100%);
+}
+
+.logo-item:nth-child(2) img {
+    opacity: 1; /* Второй логотип цветной */
+    filter: none;
+}
+
+/* АДАПТИВНЫЕ СТИЛИ ДЛЯ МОБИЛЬНЫХ */
+@media (max-width: 900px) {
+    .aerosol-section {
+        padding: 40px 20px;
+    }
+    .aerosol-content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    .aerosol-title {
+        font-size: 24px;
+        margin-bottom: 25px;
+        text-align: left;
+    }
+    .aerosol-title::before {
+        margin: 0 0 10px 0;
+    }
+    
+    .aerosol-categories {
+        grid-template-columns: 1fr 1fr; /* 2 колонки для категорий */
+        gap: 15px 10px;
+    }
+    
+
+    .aerosol-logos-block {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки для логотипов */
+        grid-template-rows: auto;
+        border: none;
+        gap: 0;
+    }
+    .logo-item {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+        height: 80px;
+    }
+    .logo-item img {
+        max-width: 80px;
+        max-height: 40px;
+    }
+    
+   
+    .logo-item:nth-child(9) {
+        display: none;
+    }
+}
+</style>
+</section>
+
+    <section class="aerosol-section">
+        <div class="aerosol-content-wrapper">
+            <div class="aerosol-text-block">
+                <h2 class="aerosol-title">
+                    ПРОИЗВОДИМ АЭРОЗОЛЬНУЮ<br>
+                    ПРОДУКЦИЮ ДЛЯ РАЗНЫХ СФЕР
+                </h2>
+                <ul class="aerosol-categories">
+                    <li class="aerosol-category-item"><i class="fas fa-flask"></i> Химические производства</li>
+                    <li class="aerosol-category-item"><i class="fas fa-car-side"></i> Автомобильная косметика</li>
+                    <li class="aerosol-category-item"><i class="fas fa-car-wash"></i> Автомойки</li>
+                    <li class="aerosol-category-item"><i class="fas fa-tshirt"></i> Косметика по уходу за одеждой</li>
+                    <li class="aerosol-category-item"><i class="fas fa-utensils"></i> Пищевая продукция</li>
+                    <li class="aerosol-category-item"><i class="fas fa-shoe-prints"></i> Косметика по уходу за обувью</li>
+                    <li class="aerosol-category-item"><i class="fas fa-paint-roller"></i> Лаки и краски</li>
+                    <li class="aerosol-category-item"><i class="fas fa-tools"></i> Строительные материалы</li>
+                    <li class="aerosol-category-item"><i class="fas fa-spa"></i> Косметические средства</li>
+                    <li class="aerosol-category-item"><i class="fas fa-ellipsis-h"></i> И многих других</li>
+                </ul>
+            </div>
+            
+            <div class="aerosol-logos-block">
+                <div class="logo-item"><img src="4.png" width="200px" height="200px"    alt="Клиент 1"></div>
+                <div class="logo-item"><img src="05.png" alt="Клиент 2 (Цветной)"></div>
+                <div class="logo-item"><img src="4.png" alt="Клиент 3"></div>
+                
+                <div class="logo-item"><img src="4.png" alt="Клиент 4"></div>
+                <div class="logo-item"><img src="4.png" alt="Клиент 5"></div>
+                <div class="logo-item"><img src="4.png" alt="Клиент 6"></div>
+                
+                <div class="logo-item"><img src="4.png" alt="Клиент 7"></div>
+                <div class="logo-item"><img src="4.png" alt="Клиент 8"></div>
+                <div class="logo-item"><img src="4.png" alt="Клиент 9 (Скрыт на моб.)"></div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <section class="image-section">
         <h2 class="image-section-title">БЛОГ ЭКСПЕРТОВ В ОБЛАСТИ ПРОИЗВОДСТВА</h2>
         <div class="desktop-image-grid">
             <div class="desktop-image-item">
-                <img src="1.png" alt="Эксперт по производству">
+                <img src="01.png" alt="Эксперт по производству">
             </div>
             <div class="desktop-image-item">
-                <img src="2.png" alt="Эксперт по логистике">
+                <img src="02.png" alt="Эксперт по логистике">
             </div>
         </div>
         <div class="mobile-image-scroll">
             <div class="mobile-image-list" id="mobileImageList">
                 <div class="mobile-image-item">
-                    <img src="1.png" alt="Эксперт по производству">
+                    <img src="01.png" alt="Эксперт по производству">
                 </div>
                 <div class="mobile-image-item">
-                    <img src="2.png" alt="Эксперт по логистике">
+                    <img src="02.png" alt="Эксперт по логистике">
                 </div>
             </div>
             <div class="scroll-controls">
