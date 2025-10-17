@@ -553,8 +553,8 @@
             z-index: 10;
             color: white;
             border: none;
-            border-radius: 50%;
-            width: 40px;
+            border-radius: 4px; /* Changed to rectangular */
+            width: 60px; /* Made wider for rectangular shape */
             height: 40px;
             cursor: pointer;
             display: flex;
@@ -666,6 +666,87 @@
             background-image: none;
         } 
 
+        /* === Мобильный стиль для КОНТРАКТНОГО ПРОИЗВОДСТВА (СЕТКА) === */
+        .mobile-production-container {
+            display: none;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .mobile-production-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 10px 0;
+        }
+        .mobile-production-item {
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .mobile-production-item .step-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+            text-align: left;
+        }
+        .mobile-production-item p {
+            font-size: 14px;
+            line-height: 1.3;
+            color: #333;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .mobile-production-item img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+            margin-top: auto;
+        }
+
+        /* === Мобильный стиль для СОБСТВЕННЫХ МАРОК (СЕТКА) === */
+        .mobile-brands-container {
+            display: none;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .mobile-brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 10px 0;
+        }
+        .mobile-brands-item {
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .mobile-brands-item .step-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+            text-align: left;
+        }
+        .mobile-brands-item p {
+            font-size: 14px;
+            line-height: 1.3;
+            color: #333;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .mobile-brands-item img {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+        }
+
         /* Общие секции */
         .content-section {
             padding: 80px 20px;
@@ -727,19 +808,42 @@
             margin-bottom: 20px;
         }
 
-        /* Собственные марки */
+        /* Собственные марки для десктопа */
         .brands-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
         .brand-item {
-            padding: 40px 30px;
+            flex: 1;
+            padding: 20px;
             border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            text-align: center;
+            border-radius: 4px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+        .brand-item:first-child {
+            background: #f8f8f8; /* Light gray background */
+        }
+        .brand-item:last-child {
+            background: #e6f2ff; /* Light blue background */
+        }
+        .brand-item img {
+            max-height: 60px;
+            margin-bottom: 10px;
+        }
+        .brand-item h4 {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .brand-item p {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.4;
         }
 
         /* О компании */
@@ -905,38 +1009,32 @@
             margin-bottom: 50px;
             color: #333;
         }
-
-        /* Десктопная версия - две картинки рядом */
         .desktop-image-grid {
-            display: none;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
-            align-items: center;
         }
         .desktop-image-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 350px; /* Оптимальная высота для ПК */
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .desktop-image-item img {
             width: 100%;
-            height: 100%;
-            /* ИЗМЕНЕНИЕ: cover вместо contain, чтобы фото заполняло контейнер */
-            object-fit: cover; /* Картинка полностью заполняет контейнер с возможной обрезкой */
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: auto;
         }
-
-        /* Мобильная версия - горизонтальная прокрутка */
         .mobile-image-scroll {
             display: none;
-            /* Остальные стили уже модифицированы выше для Flexbox */
+            height: auto;
+            padding: 0 5px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
             max-width: 100%;
             margin: 0 auto;
-            height: auto; /* Скорректировано, чтобы вместить кнопки */
         }
         .mobile-image-list {
             display: flex;
@@ -947,7 +1045,7 @@
             gap: 15px;
             -ms-overflow-style: none;
             scrollbar-width: none;
-            height: 310px; /* Фиксированная высота для списка */
+            height: auto; /* Changed to auto to fit images fully */
             width: 100%;
         }
         .mobile-image-list::-webkit-scrollbar {
@@ -962,13 +1060,13 @@
             justify-content: center;
             border-radius: 8px;
             overflow: hidden;
-            height: 310px; 
+            height: auto; /* Changed to auto to fit images fully */
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         .mobile-image-item img {
             width: 100%; 
-            height: 100%;
-            object-fit: cover; /* Используем cover для заполнения контейнера */
+            height: auto;
+            object-fit: contain; /* Changed to contain to show full image without cropping */
         }
 
 
@@ -977,6 +1075,8 @@
             .mobile-header, 
             .mobile-hero, 
             .mobile-workflow-container,
+            .mobile-production-container,
+            .mobile-brands-container,
             .mobile-menu, 
             .overlay,
             .mobile-image-scroll { /* Скрываем мобильную карусель картинок на ПК */
@@ -993,6 +1093,12 @@
             }
             .workflow-steps {
                 display: grid;
+            }
+            .production-grid {
+                display: grid;
+            }
+            .brands-section {
+                display: flex;
             }
             .about-section { 
                 flex-direction: row;
@@ -1018,6 +1124,8 @@
             .desktop-header, 
             .desktop-hero, 
             .workflow-steps,
+            .production-grid,
+            .brands-section,
             .desktop-image-grid { /* Скрываем десктопную сетку картинок на мобильных */
                 display: none;
             }
@@ -1032,6 +1140,12 @@
             }
             .mobile-workflow-container {
                 display: block;
+            }
+            .mobile-production-container {
+                display: block; /* Включаем контейнер для сетки */
+            }
+            .mobile-brands-container {
+                display: block; /* Включаем контейнер для сетки */
             }
             .about-section { 
                 flex-direction: column;
@@ -1309,19 +1423,69 @@
               
             </div>
         </div>
+        <div class="mobile-production-container" id="mobileProductionContainer">
+            <div class="mobile-production-grid" id="prodList">
+                <div class="mobile-production-item">
+                    <div class="step-title">Автомобильная химия</div>
+                    <p>Безусловно, сплочённость команды профессионалов позволяет оценить значение форм воздействия.</p>
+                    <img src="34.png" alt="Автомобильная химия">
+                </div>
+                <div class="mobile-production-item">
+                    <div class="step-title">Бытовая химия</div>
+                    <p> А также стремящиеся вытеснить традиционное производство, нанотехнологии функционально разнесены на независимые элементы</p>
+                    <img src="35.png" alt="Бытовая химия">
+                </div>
+                <div class="mobile-production-item">
+                    <div class="step-title">Дезинфицирующие средства</div>
+                    <p>Лишь интерактивные прототипы призваны к ответу.</p>
+                    <img src="36.png" alt="Дезинфицирующие средства">
+                </div>
+                <div class="mobile-production-item">
+                    <div class="step-title"> Пищевые аэрозоли</div>
+                    <p>Безусловно, сплочённость команды профессионалов позволяет оценить значение форм воздействия.</p>
+                    <img src="36.png" alt="Пищевые аэрозоли">
+                </div>
+                <div class="mobile-production-item">
+                    <div class="step-title">Косметическая продукция</div>
+                    <p>Лишь интерактивные прототипы призваны к ответу.</p>
+                    <img src="34.png" alt="Косметическая продукция">
+                </div>
+                <div class="mobile-production-item">
+                    <div class="step-title">Краски аэрозольные</div>
+                    <p> А также стремящиеся вытеснить традиционное производство, нанотехнологии функционально разнесены на независимые элементы</p>
+                    <img src="35.png" alt="Краски аэрозольные">
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="content-section" id="brands">
-        <h2 class="section-title">СОБСТВЕННЫЕ МАРКИ</h2>
+        <h2 class="section-title">СОБСТВЕННЫЕ ТОРГОВЫЕ МАРКИ</h2>
         <div class="brands-section">
             <div class="brand-item">
-                <img src="AG.png" >
-                <div class="step-title"></div>
-                <p>Профессиональная линейка бытовой химии для клининговых компаний и частного использования. Эффективность и безопасность.</p>
+                <img src="AG.png" style="max-height: 100px; float: left; margin-right: 20px;">
+                <div class="step-title">Автохимия AG-Tech</div>
+                <p>Для современного мира разбавленное изрядной долей эмпатического участия, рациональной иррациональной. Минимальное количество постоянных объектов задачи.</p>
             </div>
             <div class="brand-item">
-                <img src="Aliance5.png" >
-                <div class="step-title"></div>
+                <img src="Aliance5.png" style="max-height: 100px; float: left; margin-right: 20px;">
+                <div class="step-title">Автохимия AP</div>
+                <p>Для современного мира разбавленное изрядной долей эмпатического участия, рациональной иррациональной. Минимальное количество постоянных объектов задачи.</p>
+            </div>
+        </div>
+        <div class="mobile-brands-container" id="mobileBrandsContainer">
+            <div class="mobile-brands-grid" id="brandsList">
+                <div class="mobile-brands-item">
+                    <img src="AG.png" >
+                    <div class="step-title">Автохимия AG-Tech</div>
+                    <p>Для современного мира разбавленное изрядной долей эмпатического участия, рациональной иррациональной. Минимальное количество постоянных объектов задачи.</p>
+                </div>
+                <div class="mobile-brands-item">
+                    <img src="Aliance5.png" >
+                    <div class="step-title">Автохимия AP</div>
+                    <p>Для современного мира разбавленное изрядной долей эмпатического участия, рациональной иррациональной. Минимальное количество постоянных объектов задачи.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1340,7 +1504,7 @@
     </section>
 
     <section class="image-section">
-        <h2 class="image-section-title">БЛОГ ЭКСПЕРТОВ</h2>
+        <h2 class="image-section-title">БЛОГ ЭКСПЕРТОВ В ОБЛАСТИ ПРОИЗВОДСТВА</h2>
         <div class="desktop-image-grid">
             <div class="desktop-image-item">
                 <img src="1.png" alt="Эксперт по производству">
